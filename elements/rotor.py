@@ -3,17 +3,28 @@ class Rotor:
     def __init__(self, abecedario:str, cableado: str, posicion_inicial: int):
         self.abecedario = abecedario
         self.cableado = cableado
+        self.cableado_original = cableado
         self.posicion = posicion_inicial
+        self.posicion_inicial = posicion_inicial
 
-    def Avanzar(self) -> str:
+    def avanzar(self) -> bool:
         #logica de avance del rotor
-        self.cableado = self.cableado[1:] + self.cableado[0]
+        self.cableado = self.cableado[1:] + self.cableado[0]  # Rotar el cableado
+        self.posicion = (self.posicion + 1) % len(self.abecedario)
+        return self.posicion == 0  #Retorna si el rotor ha completado una vuelta completa
     
     def cifrar(self, letra: str) -> str:
         #implementar la logica del cifrado del rotor
         if letra in self.abecedario:
             index = self.abecedario.index(letra)
             letra_cifrada = self.cableado[index]
-            self.Avanzar()
+            self.avanzar()
             return letra_cifrada
         return letra
+    
+    def reiniciar(self):
+        self.cableado = self.cableado_original
+        self.posicion = self.posicion_inicial
+    
+    def prueba():
+        print("hola")
