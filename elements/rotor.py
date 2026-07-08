@@ -18,7 +18,6 @@ class Rotor:
         if letra in self.abecedario:
             index = self.abecedario.index(letra)
             letra_cifrada = self.cableado[index]
-            self.avanzar()
             return letra_cifrada
         return letra
     
