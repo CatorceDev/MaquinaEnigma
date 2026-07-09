@@ -17,3 +17,17 @@ def cifrar_mensaje(mensaje: str) -> str:
         letra_cifrada = rotor3.cifrar(letra_cifrada)
         mensaje_cifrado += letra_cifrada
     return mensaje_cifrado
+
+def descifrar_mensaje(mensaje: str) -> str:
+    mensaje_descifrado = ""
+    for letra in mensaje:
+        vuelta1 = rotor1.avanzar()
+        if vuelta1:
+            vuelta2 = rotor2.avanzar()
+            if vuelta2:
+                rotor3.avanzar()    
+        letra_descifrada = rotor3.descifrar(letra)
+        letra_descifrada = rotor2.descifrar(letra_descifrada)
+        letra_descifrada = rotor1.descifrar(letra_descifrada)
+        mensaje_descifrado += letra_descifrada
+    return mensaje_descifrado

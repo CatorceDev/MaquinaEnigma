@@ -18,12 +18,25 @@ class Rotor:
         if letra in self.abecedario:
             index = self.abecedario.index(letra)
             letra_cifrada = self.cableado[index]
+            self.reiniciar()
             return letra_cifrada
+        self.reiniciar()
+        return letra
+    
+    def descifrar(self, letra: str) -> str:
+        #implentando logica de descifrado del rotor
+        if letra in self.cableado:
+            index = self.cableado.index(letra)
+            letra_descifrada = self.abecedario[index]
+            self.reiniciar()
+            return letra_descifrada
+        self.reiniciar()
         return letra
     
     def reiniciar(self):
         self.cableado = self.cableado_original
         self.posicion = self.posicion_inicial
+
     
     def prueba():
         print("hola")

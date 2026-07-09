@@ -4,13 +4,25 @@ indicador = True
 while indicador:
     print("\n--------------------------------------------------------------\n")
     print("SIMULADOR DE LA MAQUINA ENIGMA")
-    mensaje = input("Ingrese el mensaje a cifrar: ")
 
-    print("Mensaje original: ", mensaje)
-
-    mensaje_cifrado = machine.cifrar_mensaje(mensaje)
-    print("Mensaje cifrado: ", mensaje_cifrado)
+    opcion = input("Ingrese 1 para cifrar un mensaje, 2 para descifrar un mensaje: ")
     
+    match opcion:
+        case "1":
+            
+            mensaje = input("Ingrese el mensaje a cifrar: ")
+
+            print("Mensaje original: ", mensaje)
+
+            mensaje_cifrado = machine.cifrar_mensaje(mensaje)
+            print("Mensaje cifrado: ", mensaje_cifrado)
+        
+        case "2":
+            mensaje = input("Ingrese el mensaje a descifrar: ")
+            print("Mensaje original: ", mensaje)
+            mensaje_descifrado = machine.descifrar_mensaje(mensaje)
+            print("Mensaje descifrado: ", mensaje_descifrado)
+
     continuar = input("Para terminar el programa presione q, para continuar presione cualquier tecla: ")
     if continuar.lower() == "q": indicador = False
     else: indicador = True
