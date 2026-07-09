@@ -57,16 +57,16 @@ Ingrese 1 para cifrar un mensaje: 1
 Ingrese el mensaje a cifrar: HOLA
 
 Mensaje original: HOLA
-Mensaje cifrado: WYJILV
+Mensaje cifrado: QKZV
 ```
 
 ### Ejemplo de descifrado
 
 ```text
 Ingrese 1 para cifrar un mensaje, 2 para descifrar un mensaje: 2
-Ingrese el mensaje a descifrar: WYJILV
+Ingrese el mensaje a descifrar: QKZV
 
-Mensaje original: WYJILV
+Mensaje original: QKZV
 Mensaje descifrado: HOLA
 ```
 
