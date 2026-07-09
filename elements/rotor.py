@@ -36,7 +36,3 @@ class Rotor:
             self.cableado_original[self.posicion_inicial:] + self.cableado_original[:self.posicion_inicial]
         )
         self.posicion = self.posicion_inicial
-
-    
-    def prueba():
-        print("hola")
