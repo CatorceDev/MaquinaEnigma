@@ -12,7 +12,7 @@ def crearCableado(mensaje: str) -> str:
     
     letra_cifrada = 0
 
-def crearSemilla() -> str:
+def crearSemilla(contraseña) -> int:
     #* Esta funcion generará una semilla pseudoaleatoria a partir de la contraseña para la conversación que se usará para crear el cableado de los rotores, el orden de los rotores, su posicion inicial.
     
     contraseña_hash = sha256(contraseña.encode()).hexdigest()
@@ -20,5 +20,15 @@ def crearSemilla() -> str:
     
     return semilla
 
-def semilla_rotores():
+def semilla_rotores(semilla:int, nombre_rotor:str) -> int:
     
+    instruccion = f"{semilla, nombre_rotor}"
+    
+    hash_rotor = sha256(instruccion.encode()).hexdigest()
+    print(hash_rotor)
+    
+    return hash_rotor
+
+
+semilla = crearSemilla(contraseña)
+semilla_rotores(semilla, "rotor3")
