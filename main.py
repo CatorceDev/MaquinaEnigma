@@ -5,35 +5,55 @@ while indicador:
     print("\n--------------------------------------------------------------\n")
     print("SIMULADOR DE LA MAQUINA ENIGMA")
 
-    print("\n ETAPA DE CONFIGURACION DE LA MÁQUINA")
-    
-    posicion_rotores = input("Ingrese la posicion inicial del rotor 1, 2 y 3 (ejemplo: 0,0,0): ")
-    posicion_rotores = [int(x) for x in posicion_rotores.split(",")]
-    machine.configurar_rotores(posicion_rotores)
+    print("\nETAPA DE CONFIGURACION DE LA MÁQUINA")
     
     while True:
-        
-        opcion = input("Ingrese 1 para cifrar un mensaje, 2 para descifrar un mensaje: ")
-        if opcion not in ["1", "2"]:
-            print("La opcion ingresada no es válida. Por favor, ingrese 1 o 2.")    
-            continue
-        
-        match opcion:
-            case "1":
+        if indicador == False:break
+        error = True
+        while error == True:
+            try:
+                posicion_rotores = input("Ingrese la posicion inicial del rotor 1, 2 y 3 (ejemplo: 0,0,0) o enter para salir: ")
+                if posicion_rotores == "":
+                    indicador = False
+                    break
+                posicion_rotores = [int(x) for x in posicion_rotores.split(",")]
                 
-                mensaje = input("Ingrese el mensaje a cifrar: ")
+                if len(posicion_rotores) != 3:
+                    raise ValueError
+                
+                machine.configurar_rotores(posicion_rotores)
+                error = False
 
-                print("Mensaje original: ", mensaje)
-
-                mensaje_cifrado = machine.cifrar_mensaje(mensaje)
-                print("Mensaje cifrado: ", mensaje_cifrado)
+            except ValueError: 
+                print("Por favor, ingresa tres números separados por comas (ejemplo: 0,0,0)\n")
+                error = True
+        
+        while True:
+            if indicador == False: break
+            opcion = input("\nIngrese 1 para cifrar un mensaje, 2 para descifrar un mensaje o enter para configurar de nuevo los rotores: ")
             
-            case "2":
-                mensaje = input("Ingrese el mensaje a descifrar: ")
-                print("Mensaje original: ", mensaje)
-                mensaje_descifrado = machine.descifrar_mensaje(mensaje)
-                print("Mensaje descifrado: ", mensaje_descifrado)
+            match opcion:
+                case "1":
+                    
+                    mensaje = input("Ingrese el mensaje a cifrar: ")
 
-    continuar = input("Para terminar el programa presione q, para continuar presione cualquier tecla: ")
-    if continuar.lower() == "q": indicador = False
-    else: indicador = True
+                    print("Mensaje original: ", mensaje)
+
+                    mensaje_cifrado = machine.cifrar_mensaje(mensaje)
+                    print("Mensaje cifrado: ", mensaje_cifrado)
+                
+                case "2":
+                    mensaje = input("Ingrese el mensaje a descifrar: ")
+                    print("Mensaje original: ", mensaje)
+                    mensaje_descifrado = machine.descifrar_mensaje(mensaje)
+                    print("Mensaje descifrado: ", mensaje_descifrado)
+                
+                case  _:
+                    break
+
+    continuar = input("\n\n¿Desea continuar? y/n: ")
+    if continuar == "y": indicador = True
+    elif continuar == "n": 
+        indicador = False
+        print("Saliendo del programa...")
+    else: print("Opción no válida. Saliendo del programa."); indicador = False
