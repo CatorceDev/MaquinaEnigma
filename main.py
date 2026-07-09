@@ -11,26 +11,28 @@ while indicador:
     posicion_rotores = [int(x) for x in posicion_rotores.split(",")]
     machine.configurar_rotores(posicion_rotores)
     
-    
-    opcion = input("Ingrese 1 para cifrar un mensaje, 2 para descifrar un mensaje: ")
-    
-    
-    
-    match opcion:
-        case "1":
-            
-            mensaje = input("Ingrese el mensaje a cifrar: ")
-
-            print("Mensaje original: ", mensaje)
-
-            mensaje_cifrado = machine.cifrar_mensaje(mensaje)
-            print("Mensaje cifrado: ", mensaje_cifrado)
+    while True:
         
-        case "2":
-            mensaje = input("Ingrese el mensaje a descifrar: ")
-            print("Mensaje original: ", mensaje)
-            mensaje_descifrado = machine.descifrar_mensaje(mensaje)
-            print("Mensaje descifrado: ", mensaje_descifrado)
+        opcion = input("Ingrese 1 para cifrar un mensaje, 2 para descifrar un mensaje: ")
+        if opcion not in ["1", "2"]:
+            print("La opcion ingresada no es válida. Por favor, ingrese 1 o 2.")    
+            continue
+        
+        match opcion:
+            case "1":
+                
+                mensaje = input("Ingrese el mensaje a cifrar: ")
+
+                print("Mensaje original: ", mensaje)
+
+                mensaje_cifrado = machine.cifrar_mensaje(mensaje)
+                print("Mensaje cifrado: ", mensaje_cifrado)
+            
+            case "2":
+                mensaje = input("Ingrese el mensaje a descifrar: ")
+                print("Mensaje original: ", mensaje)
+                mensaje_descifrado = machine.descifrar_mensaje(mensaje)
+                print("Mensaje descifrado: ", mensaje_descifrado)
 
     continuar = input("Para terminar el programa presione q, para continuar presione cualquier tecla: ")
     if continuar.lower() == "q": indicador = False
