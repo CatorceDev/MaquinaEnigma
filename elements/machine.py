@@ -9,6 +9,9 @@ def configurar_rotores(posiciones: list):
     rotor3 = rotor.Rotor("ABCDEFGHIJKLMNOPQRSTUVWXYZ", cableado, posiciones[2])
 
 def cifrar_mensaje(mensaje: str) -> str:
+    rotor1.reiniciar()
+    rotor2.reiniciar()
+    rotor3.reiniciar()
     mensaje_cifrado = ""
     for letra in mensaje:
         vuelta1 = rotor1.avanzar()
@@ -25,6 +28,9 @@ def cifrar_mensaje(mensaje: str) -> str:
     return mensaje_cifrado
 
 def descifrar_mensaje(mensaje: str) -> str:
+    rotor1.reiniciar()
+    rotor2.reiniciar()
+    rotor3.reiniciar()
     mensaje_descifrado = ""
     for letra in mensaje:
         vuelta1 = rotor1.avanzar()

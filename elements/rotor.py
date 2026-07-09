@@ -21,7 +21,6 @@ class Rotor:
             index = self.abecedario.index(letra)
             letra_cifrada = self.cableado[index]
             return letra_cifrada
-        self.reiniciar()
         return letra
     
     def descifrar(self, letra: str) -> str:
@@ -30,7 +29,6 @@ class Rotor:
             index = self.cableado.index(letra)
             letra_descifrada = self.abecedario[index]
             return letra_descifrada
-        self.reiniciar()
         return letra
     
     def reiniciar(self):
