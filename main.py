@@ -5,7 +5,16 @@ while indicador:
     print("\n--------------------------------------------------------------\n")
     print("SIMULADOR DE LA MAQUINA ENIGMA")
 
+    print("\n ETAPA DE CONFIGURACION DE LA MÁQUINA")
+    
+    posicion_rotores = input("Ingrese la posicion inicial del rotor 1, 2 y 3 (ejemplo: 0,0,0): ")
+    posicion_rotores = [int(x) for x in posicion_rotores.split(",")]
+    machine.configurar_rotores(posicion_rotores)
+    
+    
     opcion = input("Ingrese 1 para cifrar un mensaje, 2 para descifrar un mensaje: ")
+    
+    
     
     match opcion:
         case "1":

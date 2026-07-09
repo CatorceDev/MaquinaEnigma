@@ -1,8 +1,12 @@
 from . import rotor
 
-rotor1 = rotor.Rotor("ABCDEFGHIJKLMNOPQRSTUVWXYZ", "EKMFLGDQVZNTOWYHXUSPAIBRCJ", 0)
-rotor2 = rotor.Rotor("ABCDEFGHIJKLMNOPQRSTUVWXYZ", "AJDKSIRUXBLHWTMCQGZNPYFVOE", 0)
-rotor3 = rotor.Rotor("ABCDEFGHIJKLMNOPQRSTUVWXYZ", "BDFHJLCPRTXVZNYEIWGAKMUSQO", 0)
+cableado = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+def configurar_rotores(posiciones: list):
+    global rotor1, rotor2, rotor3
+    rotor1 = rotor.Rotor("ABCDEFGHIJKLMNOPQRSTUVWXYZ", cableado, posiciones[0])
+    rotor2 = rotor.Rotor("ABCDEFGHIJKLMNOPQRSTUVWXYZ", cableado, posiciones[1])
+    rotor3 = rotor.Rotor("ABCDEFGHIJKLMNOPQRSTUVWXYZ", cableado, posiciones[2])
 
 def cifrar_mensaje(mensaje: str) -> str:
     mensaje_cifrado = ""
@@ -16,6 +20,8 @@ def cifrar_mensaje(mensaje: str) -> str:
         letra_cifrada = rotor2.cifrar(letra_cifrada)
         letra_cifrada = rotor3.cifrar(letra_cifrada)
         mensaje_cifrado += letra_cifrada
+        
+        print(rotor1.posicion, rotor2.posicion, rotor3.posicion)
     return mensaje_cifrado
 
 def descifrar_mensaje(mensaje: str) -> str:
@@ -30,4 +36,5 @@ def descifrar_mensaje(mensaje: str) -> str:
         letra_descifrada = rotor2.descifrar(letra_descifrada)
         letra_descifrada = rotor1.descifrar(letra_descifrada)
         mensaje_descifrado += letra_descifrada
+        print(rotor1.posicion, rotor2.posicion, rotor3.posicion)
     return mensaje_descifrado

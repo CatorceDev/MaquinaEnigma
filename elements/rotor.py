@@ -2,7 +2,9 @@ class Rotor:
     
     def __init__(self, abecedario:str, cableado: str, posicion_inicial: int):
         self.abecedario = abecedario
-        self.cableado = cableado
+        self.cableado = (
+            cableado[posicion_inicial:] + cableado[:posicion_inicial]
+        )
         self.cableado_original = cableado
         self.posicion = posicion_inicial
         self.posicion_inicial = posicion_inicial
@@ -18,7 +20,6 @@ class Rotor:
         if letra in self.abecedario:
             index = self.abecedario.index(letra)
             letra_cifrada = self.cableado[index]
-            self.reiniciar()
             return letra_cifrada
         self.reiniciar()
         return letra
@@ -28,13 +29,14 @@ class Rotor:
         if letra in self.cableado:
             index = self.cableado.index(letra)
             letra_descifrada = self.abecedario[index]
-            self.reiniciar()
             return letra_descifrada
         self.reiniciar()
         return letra
     
     def reiniciar(self):
-        self.cableado = self.cableado_original
+        self.cableado = (
+            self.cableado_original[self.posicion_inicial:] + self.cableado_original[:self.posicion_inicial]
+        )
         self.posicion = self.posicion_inicial
 
     
