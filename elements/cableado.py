@@ -2,11 +2,11 @@ from sys import maxunicode
 import secrets
 from hashlib import sha256
 
-
+N = maxunicode + 1
 contraseña = "soycatorcc"
 
 def crearCableado(mensaje: str) -> str:
-    #* Esta funcion creará un cableado basado en una f(x) que toma el valor unicode de cada letra para dar el valor encriptado de los rotores
+    #* Esta funcion creará un cableado basado en una f(x) que 
     
     
     
@@ -21,14 +21,15 @@ def crearSemilla(contraseña) -> int:
     return semilla
 
 def semilla_rotores(semilla:int, nombre_rotor:str) -> int:
+    #* Esta funcion generará una semilla pseudoaleatoria para cada rotor para definir la posicion inicial de cada rotor y su cableado
     
     instruccion = f"{semilla, nombre_rotor}"
     
     hash_rotor = sha256(instruccion.encode()).hexdigest()
-    print(hash_rotor)
+    semilla_rotor = int(hash_rotor, 16)
     
-    return hash_rotor
+    return semilla_rotor
 
-
-semilla = crearSemilla(contraseña)
-semilla_rotores(semilla, "rotor3")
+def pos_i_rotores(semilla_rotor):
+    posicion_rotor = semilla_rotor % N
+    return posicion_rotor
