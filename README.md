@@ -30,7 +30,7 @@ Este proyecto busca recrear el funcionamiento de los rotores y el mecanismo de s
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/CatorceDev/enigma.git
+git clone https://github.com/CatorceDev/MaquinaEnigma
 ```
 
 ### 2. Entrar al directorio del proyecto
