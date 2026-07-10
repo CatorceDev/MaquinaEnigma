@@ -36,4 +36,4 @@ def crearCableado(semilla_rotor) -> int:
     seed(semilla_rotor)
     cableado = list(range(N))
     shuffle(cableado)
-    
+    return cableado

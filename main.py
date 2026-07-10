@@ -27,10 +27,9 @@ while indicador:
             posicion_rotor1, posicion_rotor2, posicion_rotor3 = config.posiciones_i_rotores()
             cableado_rotor1, cableado_rotor2, cableado_rotor3 = config.cableado_rotores()
             
-            posiciones = list[posicion_rotor1, posicion_rotor2, posicion_rotor3]
-            cableados = list[cableado_rotor1, cableado_rotor2, cableado_rotor3]
-            
-            
+            posiciones = [posicion_rotor1, posicion_rotor2, posicion_rotor3]
+            cableados = [cableado_rotor1, cableado_rotor2, cableado_rotor3]
+            machine = machine.machine(cableados, posiciones)
             
                 
             while True:

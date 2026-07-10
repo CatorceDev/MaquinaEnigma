@@ -24,7 +24,6 @@ class machine:
             letra_cifrada = self.rotor3.cifrar(letra_cifrada)
             mensaje_cifrado += letra_cifrada
             
-            print(self.rotor1.posicion, self.rotor2.posicion, self.rotor3.posicion)
         return mensaje_cifrado
 
     def descifrar_mensaje(self, mensaje: str) -> str:
@@ -42,5 +41,4 @@ class machine:
             letra_descifrada = self.rotor2.descifrar(letra_descifrada)
             letra_descifrada = self.rotor1.descifrar(letra_descifrada)
             mensaje_descifrado += letra_descifrada
-            print(self.rotor1.posicion, self.rotor2.posicion, self.rotor3.posicion)
         return mensaje_descifrado
