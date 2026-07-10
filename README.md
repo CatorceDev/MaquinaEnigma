@@ -1,5 +1,5 @@
 # 🔐 Enigma Simulator
-## Current Version 1.0.0
+## Current Version 1.1.0
 Una implementación en Python inspirada en la máquina **Enigma**, utilizada durante la Segunda Guerra Mundial para el cifrado de comunicaciones militares.
 
 Este proyecto busca recrear el funcionamiento de los rotores y el mecanismo de sustitución dinámica característicos de Enigma, además de servir como una plataforma para experimentar con nuevas ideas y mejoras utilizando tecnologías modernas.
@@ -8,12 +8,20 @@ Este proyecto busca recrear el funcionamiento de los rotores y el mecanismo de s
 
 ## ✨ Características actuales
 
-* Simulación de rotores configurables.
-* Cableado personalizable para cada rotor.
 * Rotación automática de los rotores durante el cifrado.
 * Soporte para cifrado y descifrado de mensajes.
 * Reinicio de la configuración inicial de los rotores para reproducir resultados.
 * Interfaz de línea de comandos (CLI).
+
+---
+## ✨ Cambios de la última versión
+
+* Se cambio la configuracion manual de los rotores a una configuracion automatica mediante una contraseña de cifrado inicial
+* Se extendio un lenguaje de 27 caracteres aceptados a todo unicode
+* Se implementó una arquitectura orientada a objetos para representar la maquina y sus rotores
+* Se creo un mecanismo de cifrado basado ens semillas creadas a partir de hashear la contraseña y convertirla a un entero
+* Se incorporó la generación de posiciones iniciales de los rotores a partir de las semillas generadas
+* Se mejoró la modularidad del proyecto mediante la creación del módulo config
 
 ---
 
