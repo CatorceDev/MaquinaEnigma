@@ -1,4 +1,6 @@
-from elements import machine, cableado, config
+from elements import cableado
+from elements.config import Config
+from elements.machine import Machine
 
 
 indicador = True
@@ -12,6 +14,11 @@ while indicador:
         if indicador == False:break
         error = True
         while error == True:
+            contraseña = ""
+            rotor1 = ""
+            rotor2 = ""
+            rotor3 = ""
+            
             contraseña = input("Ingresa tu contraseña de cifrado: ")
             
             print("Nombra tus rotores :)\n")
@@ -20,7 +27,12 @@ while indicador:
             rotor3 = input("Nombre de tu rotor 3: ")
             
             semilla = cableado.crearSemilla(contraseña)
-            config = config.config(rotor1, rotor2, rotor3, semilla)
+            config = Config(
+                rotor1,
+                rotor2,
+                rotor3, 
+                semilla
+            )
             
             
             #*Creando la configuracion de los rotores mediante el modulo config
@@ -29,7 +41,7 @@ while indicador:
             
             posiciones = [posicion_rotor1, posicion_rotor2, posicion_rotor3]
             cableados = [cableado_rotor1, cableado_rotor2, cableado_rotor3]
-            machine = machine.machine(cableados, posiciones)
+            machine = Machine(cableados, posiciones)
             
                 
             while True:

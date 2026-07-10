@@ -1,6 +1,6 @@
 from . import cableado
 
-class config:
+class Config:
     def __init__(self, rotor1:str, rotor2:str, rotor3:str, semilla:int):
         self.rotor1 = rotor1
         self.rotor2 = rotor2

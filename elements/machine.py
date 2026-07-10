@@ -1,6 +1,6 @@
 from . import rotor
 
-class machine:
+class Machine:
         
     def __init__(self, cableados:list, posiciones: list):
         self.rotor1 = rotor.Rotor(cableados[0], posiciones[0])
