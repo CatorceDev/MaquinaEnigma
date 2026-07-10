@@ -22,7 +22,14 @@ while indicador:
             semilla = cableado.crearSemilla(contraseña)
             config = config.config(rotor1, rotor2, rotor3, semilla)
             
-            semilla_rotor1, semilla_rotor2, semilla_rotor3 = config.semillas_rotores()
+            
+            #*Creando la configuracion de los rotores mediante el modulo config
+            posicion_rotor1, posicion_rotor2, posicion_rotor3 = config.posiciones_i_rotores()
+            cableado_rotor1, cableado_rotor2, cableado_rotor3 = config.cableado_rotores()
+            
+            posiciones = list[posicion_rotor1, posicion_rotor2, posicion_rotor3]
+            cableados = list[cableado_rotor1, cableado_rotor2, cableado_rotor3]
+            
             
                 
             while True:

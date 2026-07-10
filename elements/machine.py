@@ -2,11 +2,11 @@ from . import rotor
 
 cableado = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-def configurar_rotores(posiciones: list):
+def configurar_rotores(cableados:list, posiciones: list):
     global rotor1, rotor2, rotor3
-    rotor1 = rotor.Rotor(cableado, posiciones[0])
-    rotor2 = rotor.Rotor(cableado, posiciones[1])
-    rotor3 = rotor.Rotor(cableado, posiciones[2])
+    rotor1 = rotor.Rotor(cableados[0], posiciones[0])
+    rotor2 = rotor.Rotor(cableados[1], posiciones[1])
+    rotor3 = rotor.Rotor(cableados[2], posiciones[2])
 
 def cifrar_mensaje(mensaje: str) -> str:
     
