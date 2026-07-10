@@ -12,6 +12,8 @@ Este proyecto busca recrear el funcionamiento de los rotores y el mecanismo de s
 * Soporte para cifrado y descifrado de mensajes.
 * Reinicio de la configuración inicial de los rotores para reproducir resultados.
 * Interfaz de línea de comandos (CLI).
+* Soporte para caracteres unicode
+* Cifrado basado en semillas creadas por una contraseña de cifrado inicial
 
 ---
 ## ✨ Cambios de la última versión
@@ -61,21 +63,43 @@ Ingrese 2 para descifrar un mensaje.
 ### Ejemplo de cifrado
 
 ```text
-Ingrese 1 para cifrar un mensaje: 1
-Ingrese el mensaje a cifrar: HOLA
+--------------------------------------------------------------
 
-Mensaje original: HOLA
-Mensaje cifrado: QKZV
+SIMULADOR DE LA MAQUINA ENIGMA
+
+ETAPA DE CONFIGURACION DE LA MÁQUINA
+Ingresa tu contraseña de cifrado: ContraseñaSuperSecreta123
+Nombra tus rotores :)
+
+Nombre de tu rotor 1: Contraseña_rotor_1
+Nombre de tu rotor 2: Contraseña_rotor_2
+Nombre de tu rotor 3: Contraseña_rotor_3
+
+Ingrese 1 para cifrar un mensaje, 2 para descifrar un mensaje o enter para configurar de nuevo los rotores: 1
+Ingrese el mensaje a cifrar: Mensaje a cifrar con Enigma
+Mensaje original:  Mensaje a cifrar con Enigma
+Mensaje cifrado:  󢙜򐬯󠣘𞀘ᜍ󟷅񼘄󠨆𥥼󃚲𴁘󶋺􌏢󤻬󟷅񣊣񀉡󶋺񣊣񣊣񊰜񿀹􇳗񫷎󤻬񭈟󒦽
 ```
 
 ### Ejemplo de descifrado
 
 ```text
-Ingrese 1 para cifrar un mensaje, 2 para descifrar un mensaje: 2
-Ingrese el mensaje a descifrar: QKZV
+--------------------------------------------------------------
 
-Mensaje original: QKZV
-Mensaje descifrado: HOLA
+SIMULADOR DE LA MAQUINA ENIGMA
+
+ETAPA DE CONFIGURACION DE LA MÁQUINA
+Ingresa tu contraseña de cifrado: ContraseñaSuperSecreta123
+Nombra tus rotores :)
+
+Nombre de tu rotor 1: Contraseña_rotor_1
+Nombre de tu rotor 2: Contraseña_rotor_2
+Nombre de tu rotor 3: Contraseña_rotor_3
+
+Ingrese 1 para cifrar un mensaje, 2 para descifrar un mensaje o enter para configurar de nuevo los rotores: 2
+Ingrese el mensaje a descifrar: 󢙜򐬯󠣘𞀘ᜍ󟷅񼘄󠨆𥥼󃚲𴁘󶋺􌏢󤻬󟷅񣊣񀉡󶋺񣊣񣊣񊰜񿀹􇳗񫷎󤻬񭈟󒦽
+Mensaje original:  󢙜򐬯󠣘𞀘ᜍ󟷅񼘄󠨆𥥼󃚲𴁘󶋺􌏢󤻬󟷅񣊣񀉡󶋺񣊣񣊣񊰜񿀹􇳗񫷎󤻬񭈟󒦽
+Mensaje descifrado:  Mensaje a cifrar con Enigma
 ```
 
 ---
@@ -89,8 +113,12 @@ Enigma/
 │
 ├── elements/
 │   ├── __init__.py
-│   ├── rotor.py            # Implementación de los rotores
-│   └── machine.py          # Coordinación del cifrado y descifrado
+|   ├── cableado.py         # Funciones para crear el cableado de los rotores
+|   ├── config.py           # Clase para crear las semillas, posiciones inciales y el cablado de los rotores
+|   ├── exceptions.py       # Clase en proceso para manejar todas las excepciones
+│   ├── machine.py          # Clase para crear la maquina enigma
+|   ├── reflector.py        # Clase en proceso para separar las tareas de la maquina enigma y el cifrado/descifrado
+│   └── rotor.py            # Clase para la implementación de los rotores
 │
 └── README.md
 ```
@@ -125,10 +153,15 @@ Durante el cifrado:
 ## 📚 Objetivos del proyecto
 
 * Implementar un reflector similar al de la Enigma histórica.
-* Añadir soporte para configuraciones personalizadas de rotores.
 * Implementar un panel de conexiones (*plugboard*).
-* Investigar soporte para caracteres Unicode.
 * Experimentar con mejoras modernas inspiradas en el diseño original.
+* Integrar la herramienta con una API de mensajería.
+* Desarrollar una interfaz gráfica.
+* Sustituir el reinicio de los rotores por un sistema de avance continuo.
+* Investigar mecanismos de sincronización entre emisor y receptor sin transmitir el estado actual de la máquina-
+* Optimizar el algoritmo de cifrado/descifrado.
+* Implementar un sistema de intercambio seguro de semillas maestras.
+* Implementar el cifrado de imagenes, videos y demás archivos multimedia.
 
 ---
 
