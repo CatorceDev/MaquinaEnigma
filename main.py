@@ -31,6 +31,7 @@ while indicador:
             cableados = list[cableado_rotor1, cableado_rotor2, cableado_rotor3]
             
             
+            
                 
             while True:
                 if indicador == False: break
