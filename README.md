@@ -51,13 +51,15 @@ python main.py
 
 ## 📖 Uso
 
-Al ejecutar el programa aparecerá un menú interactivo:
+Al ejecutar el programa aparecerá un menú interactivo donde se solicitará una contraseña de cifrado y para cada rotor:
 
 ```text
-SIMULADOR DE LA MAQUINA ENIGMA
+Ingresa tu contraseña de cifrado: ContraseñaSuperSecreta123
+Nombra tus rotores :)
 
-Ingrese 1 para cifrar un mensaje.
-Ingrese 2 para descifrar un mensaje.
+Nombre de tu rotor 1: Contraseña_rotor_1
+Nombre de tu rotor 2: Contraseña_rotor_2
+Nombre de tu rotor 3: Contraseña_rotor_3
 ```
 
 ### Ejemplo de cifrado
