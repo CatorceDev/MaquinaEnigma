@@ -1,5 +1,4 @@
 from . import rotor
-from . import cableado as cab
 
 cableado = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
