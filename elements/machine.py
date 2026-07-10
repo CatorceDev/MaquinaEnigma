@@ -5,9 +5,9 @@ cableado = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 def configurar_rotores(posiciones: list):
     global rotor1, rotor2, rotor3
-    rotor1 = rotor.Rotor("ABCDEFGHIJKLMNOPQRSTUVWXYZ", cableado, posiciones[0])
-    rotor2 = rotor.Rotor("ABCDEFGHIJKLMNOPQRSTUVWXYZ", cableado, posiciones[1])
-    rotor3 = rotor.Rotor("ABCDEFGHIJKLMNOPQRSTUVWXYZ", cableado, posiciones[2])
+    rotor1 = rotor.Rotor(cableado, posiciones[0])
+    rotor2 = rotor.Rotor(cableado, posiciones[1])
+    rotor3 = rotor.Rotor(cableado, posiciones[2])
 
 def cifrar_mensaje(mensaje: str) -> str:
     
